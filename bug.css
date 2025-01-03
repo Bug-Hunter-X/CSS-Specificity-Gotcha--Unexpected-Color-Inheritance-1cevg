@@ -1,0 +1,17 @@
+The following CSS code has an uncommon bug related to the specificity of selectors:
+
+```css
+div.container p {
+  color: blue;
+}
+
+.container p {
+  color: red;
+}
+
+.container div p {
+  color: green;
+}
+```
+
+The expected behavior is that the paragraph within the div.container would be blue, but due to a nuanced specificity calculation, it may be green. The issue lies in how the browser calculates selector specificity.

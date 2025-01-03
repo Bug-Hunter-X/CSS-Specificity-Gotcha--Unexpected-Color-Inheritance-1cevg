@@ -1,0 +1,34 @@
+To fix the specificity issue, we can adjust the CSS to clearly define the order of precedence:
+
+```css
+div.container p {
+  color: blue !important;
+}
+
+.container p {
+  color: red;
+}
+
+.container div p {
+  color: green;
+}
+```
+
+By adding `!important` to the first rule, we ensure the blue color is applied without conflicts. Alternatively, restructuring the selectors could be a solution:
+
+```css
+.container {
+  p {
+    color: red;
+  }
+  div {
+    p {
+      color: green;
+    }
+  }
+}
+div.container p {
+  color: blue;
+}
+```
+This approach utilizes nesting to establish a clear hierarchical specificity, resulting in predictable color application.
